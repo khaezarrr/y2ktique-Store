@@ -107,18 +107,20 @@
     var stepInfo = document.getElementById('stepInfo');
     var stepMethod = document.getElementById('stepMethod');
 
-    if (savedNick && savedUser && savedPay) {
-      var msg = buildOrderMessage(savedNick, savedUser, currentDetail, savedPay);
-      window.open(buildChannelLink(selectedChannel, msg), '_blank');
-      showOneClickToast(savedNick, savedPay);
-      closePayPopup();
-      return;
-    }
-
-    if (savedNick && savedUser && !savedPay) {
+    if (savedNick && savedUser) {
       stepInfo.style.display = 'none';
       stepMethod.style.display = 'block';
       if (changeBtn) changeBtn.style.display = 'block';
+
+      if (savedPay) {
+        var payBtns = document.querySelectorAll('.pay-btn');
+        for (var i = 0; i < payBtns.length; i++) {
+          if (payBtns[i].textContent.indexOf(savedPay) !== -1) {
+            selectPay(payBtns[i], savedPay);
+            break;
+          }
+        }
+      }
     } else {
       applyChannelUI(selectedChannel);
       stepInfo.style.display = 'block';
