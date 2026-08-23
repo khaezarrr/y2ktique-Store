@@ -99,12 +99,7 @@
     document.getElementById('inputUsername').value = savedUser;
     if (hintEl) hintEl.style.display = (savedNick && savedUser) ? 'block' : 'none';
 
-    if (!savedChannel) {
-      if (stepChannel) stepChannel.style.display = 'block';
-    } else {
-      applyChannelUI(selectedChannel);
-      continueOrderFlow(savedNick, savedUser, savedPay);
-    }
+    if (stepChannel) stepChannel.style.display = 'block';
   }
 
   function continueOrderFlow(savedNick, savedUser, savedPay) {
