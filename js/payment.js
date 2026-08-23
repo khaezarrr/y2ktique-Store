@@ -228,6 +228,17 @@
     document.getElementById('payConfirmBtn').classList.remove('ready');
   }
 
+  function backToChannel() {
+    document.getElementById('stepInfo').style.display = 'none';
+    document.getElementById('stepMethod').style.display = 'none';
+    document.getElementById('stepChannel').style.display = 'block';
+    document.getElementById('inputUsername').value = '';
+    selectedPay = '';
+    var btns = document.querySelectorAll('.pay-btn');
+    for (var i = 0; i < btns.length; i++) btns[i].classList.remove('selected');
+    document.getElementById('payConfirmBtn').classList.remove('ready');
+  }
+
   function selectPay(el, method) {
     selectedPay = method;
     var btns = document.querySelectorAll('.pay-btn');

@@ -175,7 +175,10 @@
       <input type="text" id="inputUsername" class="pay-input" placeholder="contoh: @Elmetanoia"/>
       <button class="pay-confirm ready" onclick="goToPayMethod()" style="margin-top:1rem">Lanjut →</button>
       <button class="pay-skip" id="skipChannelBtn" onclick="skipToChannel()">💬 Isi langsung di Telegram</button>
-      <button class="pay-cancel" onclick="closePayPopup()">✕ Batal</button>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.7rem;">
+        <button class="pay-cancel" onclick="backToChannel()" style="margin-top:0">← Kembali</button>
+        <button class="pay-cancel" onclick="closePayPopup()" style="margin-top:0">✕ Batal</button>
+      </div>
     </div>
 
     <div class="pay-step" id="stepMethod" style="display:none">
