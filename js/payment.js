@@ -134,7 +134,6 @@
 
   function chooseChannel(channel) {
     selectedChannel = channel;
-    localStorage.setItem('y2k_channel', channel);
 
     if (channelMode === 'general') {
       window.open(buildChannelLink(channel), '_blank');
@@ -142,6 +141,7 @@
       return;
     }
 
+    localStorage.setItem('y2k_channel', channel);
     var savedNick = localStorage.getItem('y2k_nickname') || '';
     var savedUser = localStorage.getItem('y2k_username') || '';
     var savedPay = localStorage.getItem('y2k_payment') || '';
