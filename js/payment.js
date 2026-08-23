@@ -56,10 +56,10 @@
     selectedPay = '';
     channelMode = mode || 'order';
 
-    var savedNick = localStorage.getItem('y2k_nickname') || '';
-    var savedUser = localStorage.getItem('y2k_username') || '';
-    var savedPay = localStorage.getItem('y2k_payment') || '';
-    var savedChannel = localStorage.getItem('y2k_channel') || '';
+    var savedNick = '';
+    var savedUser = '';
+    var savedPay = '';
+    var savedChannel = '';
     var changeBtn = document.getElementById('changeDataBtn');
     var hintEl = document.getElementById('autofillHint');
     var payDetail = document.getElementById('payDetail');
@@ -94,6 +94,10 @@
       return;
     }
 
+    localStorage.removeItem('y2k_nickname');
+    localStorage.removeItem('y2k_username');
+    localStorage.removeItem('y2k_payment');
+    localStorage.removeItem('y2k_channel');
     document.getElementById('payDetail').textContent = currentDetail;
     document.getElementById('inputNickname').value = savedNick;
     document.getElementById('inputUsername').value = savedUser;
@@ -138,15 +142,11 @@
       return;
     }
 
-    localStorage.setItem('y2k_channel', channel);
-    var savedNick = localStorage.getItem('y2k_nickname') || '';
-    var savedUser = localStorage.getItem('y2k_username') || '';
-    var savedPay = localStorage.getItem('y2k_payment') || '';
     var stepChannel = document.getElementById('stepChannel');
 
     applyChannelUI(channel);
     if (stepChannel) stepChannel.style.display = 'none';
-    continueOrderFlow(savedNick, savedUser, savedPay);
+    continueOrderFlow('', '', '');
   }
 
   function showOneClickToast(nick, pay) {
@@ -210,10 +210,6 @@
       return;
     }
 
-    localStorage.setItem('y2k_nickname', nick);
-    localStorage.setItem('y2k_username', user);
-    localStorage.setItem('y2k_channel', selectedChannel);
-
     document.getElementById('stepInfo').style.display = 'none';
     document.getElementById('stepMethod').style.display = 'block';
   }
@@ -248,8 +244,6 @@
     el.classList.add('selected');
     var nick = document.getElementById('inputNickname').value.trim();
     var user = document.getElementById('inputUsername').value.trim();
-
-    localStorage.setItem('y2k_payment', method);
 
     var msg = buildOrderMessage(nick, user, currentDetail, selectedPay);
     var confirmBtn = document.getElementById('payConfirmBtn');
