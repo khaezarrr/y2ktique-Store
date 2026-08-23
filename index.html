@@ -36,7 +36,7 @@
   <p>Dapatkan aplikasi premium, akun, dan layanan eksklusif dengan harga terbaik. Proses cepat, aman, dan ramah! 🛒</p>
   <div class="hero-btns">
     <a href="#produk" class="btn-primary">🛍️ Lihat Produk</a>
-    <a href="https://t.me/Elmetanoia" target="_blank" class="btn-secondary">💬 Chat Sekarang</a>
+    <a href="#" onclick="openChannelPopup('general'); return false;" class="btn-secondary">💬 Chat Sekarang</a>
   </div>
   <div class="hero-mascots">
     <div class="mascot" title="Halo!">🐱</div>
@@ -155,8 +155,15 @@
 <!-- PAYMENT POPUP -->
 <div class="pay-overlay" id="payOverlay">
   <div class="pay-box">
-    <div class="pay-title">🛍️ Detail Order</div>
+    <div class="pay-title" id="payTitle">🛍️ Detail Order</div>
     <div class="pay-detail" id="payDetail">YouTube Premium Famplan 2 Bulan</div>
+
+    <div class="pay-step" id="stepChannel">
+      <div class="pay-input-label" style="margin-bottom:0.7rem">Mau Chat Lewat Mana? 💬</div>
+      <button class="pay-confirm ready" onclick="chooseChannel('telegram')" style="margin-bottom:0.6rem">✈️ Chat via Telegram</button>
+      <button class="pay-skip" onclick="chooseChannel('whatsapp')">💬 Chat via WhatsApp</button>
+      <button class="pay-cancel" onclick="closePayPopup()">✕ Batal</button>
+    </div>
 
     <div class="pay-step" id="stepInfo">
       <div id="autofillHint" style="display:none; font-size:0.78rem; color:var(--pink-deep); font-weight:700; background:rgba(233,30,140,0.08); border-radius:10px; padding:0.4rem 0.8rem; margin-bottom:0.8rem;">
@@ -164,10 +171,10 @@
       </div>
       <div class="pay-input-label">Nickname kamu 💕</div>
       <input type="text" id="inputNickname" class="pay-input" placeholder="contoh: Kya"/>
-      <div class="pay-input-label" style="margin-top:0.7rem">Username Telegram 🌸</div>
+      <div class="pay-input-label" id="contactLabel" style="margin-top:0.7rem">Username Telegram 🌸</div>
       <input type="text" id="inputUsername" class="pay-input" placeholder="contoh: @Elmetanoia"/>
       <button class="pay-confirm ready" onclick="goToPayMethod()" style="margin-top:1rem">Lanjut →</button>
-      <button class="pay-skip" onclick="skipToTelegram()">💬 Isi langsung di Telegram</button>
+      <button class="pay-skip" id="skipChannelBtn" onclick="skipToChannel()">💬 Isi langsung di Telegram</button>
       <button class="pay-cancel" onclick="closePayPopup()">✕ Batal</button>
     </div>
 

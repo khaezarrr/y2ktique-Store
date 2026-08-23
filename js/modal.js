@@ -15,7 +15,7 @@
           html += '<div class="price-item">';
           html += '<span class="price-label">• ' + label + '</span>';
           if (val) html += '<span class="price-val">idr. ' + val + '</span>';
-          if (val) html += '<button class="price-order-btn" onclick="openPayPopup(\'' + detail.replace(/'/g, "\\'") + '\')">Order</button>';
+          if (val) html += '<button class="price-order-btn" onclick="openChannelPopup(\'order\', \'' + detail.replace(/'/g, "\\'") + '\')">Order</button>';
           html += '</div>';
         }
       }

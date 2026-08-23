@@ -56,7 +56,7 @@
         html += '<span class="search-result-cat">📂 ' + r.cat + '</span>';
         html += '</div>';
         html += '<span class="search-result-price">idr. ' + r.price + '</span>';
-        html += '<button class="search-result-btn" onclick="openPayPopup(\'' + r.detail.replace(/'/g, "\\'") + '\')">Order</button>';
+        html += '<button class="search-result-btn" onclick="openChannelPopup(\'order\', \'' + r.detail.replace(/'/g, "\\'") + '\')">Order</button>';
         html += '</div>';
       }
       resultsEl.innerHTML = html;
