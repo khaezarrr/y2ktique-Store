@@ -24,7 +24,7 @@
         '• nickname: ' + savedNick + '\n• username: ' + savedUser +
         '\n• detail order: ' + detail + '\n• metode bayar: ' + savedPay
       );
-      window.open('https://t.me/Skymblue?text=' + msg, '_blank');
+      window.open('https://t.me/Elmetanoia?text=' + msg, '_blank');
       showOneClickToast(savedNick, savedPay);
       return;
     }
@@ -144,7 +144,7 @@
       '• nickname: ' + nick + '\n• username: ' + user + '\n• detail order: ' + currentDetail + '\n• metode bayar: ' + selectedPay
     );
     var confirmBtn = document.getElementById('payConfirmBtn');
-    confirmBtn.href = 'https://t.me/Skymblue?text=' + msg;
+    confirmBtn.href = 'https://t.me/Elmetanoia?text=' + msg;
     confirmBtn.setAttribute('target', '_blank');
     confirmBtn.classList.add('ready');
   }
@@ -153,7 +153,7 @@
     var msg = encodeURIComponent(
       '• nickname: \n• username: \n• detail order: ' + currentDetail + '\n• metode bayar: '
     );
-    window.open('https://t.me/Skymblue?text=' + msg, '_blank');
+    window.open('https://t.me/Elmetanoia?text=' + msg, '_blank');
     closePayPopup();
   }
 
